@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verai - AI-Powered Video Fact Checking</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body data-color-scheme="dark">
+    <div class="app">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="app-logo">
+                    <span class="logo-icon">🛡️</span>
+                    Verai
+                </h1>
+                <p class="app-tagline">AI-Powered Fact Checking</p>
+            </div>
+        </header>
+
+        <!-- Main Feed -->
+        <main class="feed">
+            <div class="feed-container" id="feedContainer">
+                <!-- Video posts will be dynamically generated here -->
+            </div>
+        </main>
+
+        <!-- Credibility Verdict Modal -->
+        <div class="modal hidden" id="verdictModal">
+            <div class="modal-backdrop" onclick="closeVerdictModal()"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Credibility Analysis</h2>
+                    <button class="modal-close" onclick="closeVerdictModal()">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="loading-container hidden" id="loadingContainer">
+                        <div class="loading-spinner"></div>
+                        <p class="loading-text">Analyzing video content...</p>
+                        <div class="loading-steps">
+                            <div class="step active" id="step1">🎵 Extracting audio</div>
+                            <div class="step" id="step2">📝 Converting speech to text</div>
+                            <div class="step" id="step3">🤖 AI analysis in progress</div>
+                        </div>
+                    </div>
+                    <div class="verdict-container hidden" id="verdictContainer">
+                        <div class="verdict-badge" id="verdictBadge">
+                            <span class="verdict-icon" id="verdictIcon"></span>
+                            <span class="verdict-text" id="verdictText"></span>
+                        </div>
+                        <p class="verdict-explanation" id="verdictExplanation"></p>
+                        <div class="verdict-actions">
+                            <button class="btn btn--outline" onclick="openLearnMore()">Learn More</button>
+                            <button class="btn btn--primary" onclick="closeVerdictModal()">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Play Modal -->
+        <div class="modal hidden" id="videoModal">
+            <div class="modal-backdrop" onclick="closeVideoModal()"></div>
+            <div class="modal-content video-modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Video Player</h2>
+                    <button class="modal-close" onclick="closeVideoModal()">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="video-placeholder">
+                        <div class="video-icon">▶️</div>
+                        <p>Video would play here in the full application</p>
+                        <p class="video-note">This is a prototype - video playback not implemented</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
